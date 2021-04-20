@@ -1,0 +1,9 @@
+
+.ReactTable .react-nested-table-inner {
+    margin: inherit !important;
+}
+
+.ReactTable .react-nested-table-inner .title {
+    font-weight: bold;
+    font-size: 1rem !important;
+}

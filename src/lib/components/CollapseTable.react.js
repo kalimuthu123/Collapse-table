@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ReactNestedTable from 'react-nested-table';
 
+import './CollapseTable.css'
+
 
 
 var jsonData = [
@@ -255,12 +257,25 @@ var jsonData = [
  * which is editable by the user.
  */
 export default class CollapseTable extends Component {
+	
+	
+	constructor(props) {
+        super(props);
+        this.state = {
+			jsonData : this.props.value
+		}
+	}
+	
+	componentWillMount() {
+		this.props.setProps({ value: this.state.jsonData });
+	}
+	
     render() {
         const {id, label, setProps, value} = this.props;
 
         return (
             <div id={id}>
-                <ReactNestedTable data={jsonData} />
+                <ReactNestedTable data={this.state.jsonData} />
             </div>
         );
     }
@@ -282,7 +297,7 @@ CollapseTable.propTypes = {
     /**
      * The value displayed in the input.
      */
-    value: PropTypes.string,
+    value: PropTypes.any,
 
     /**
      * Dash-assigned callback that should be called to report property changes
