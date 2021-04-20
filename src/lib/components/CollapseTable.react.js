@@ -1,5 +1,251 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import ReactNestedTable from 'react-nested-table';
+
+
+
+var jsonData = [
+  {
+    "id": 0,
+    "firstName": "Brannon",
+    "lastName": "Tromp",
+    "bs": "cross-platform generate eyeballs",
+    "catchPhrase": "Cross-platform next generation analyzer",
+    "companyName": "Crist LLC",
+    "detail": {
+      "firstName": "Haskell",
+      "lastName": "Bailey",
+      "address": {
+        "zipCode": "19020-3006",
+        "city": "Hesselton",
+        "street": "Schneider Squares"
+      },
+      "email": "Brielle_Boyle@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/maiklam/128.jpg",
+      "list": [
+        "non",
+        "dolores",
+        "maiores"
+      ]
+    }
+  },
+  {
+    "id": 1,
+    "firstName": "Stanford",
+    "lastName": "Daugherty",
+    "bs": "magnetic implement portals",
+    "catchPhrase": "Multi-tiered 6th generation extranet",
+    "companyName": "Morissette, Treutel and Dicki",
+    "detail": {
+      "firstName": "Hershel",
+      "lastName": "Goyette",
+      "address": {
+        "zipCode": "48024-2443",
+        "city": "Albinashire",
+        "street": "Dicki Place"
+      },
+      "email": "Arianna87@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/g3d/128.jpg",
+      "list": [
+        "quod",
+        "iure",
+        "rerum"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "firstName": "Hoyt",
+    "lastName": "Heidenreich",
+    "bs": "rich extend web services",
+    "catchPhrase": "Right-sized 5th generation secured line",
+    "companyName": "Herman, Kuhn and Schiller",
+    "detail": {
+      "firstName": "Rupert",
+      "lastName": "Weissnat",
+      "address": {
+        "zipCode": "13181",
+        "city": "Baileyborough",
+        "street": "Toy Track"
+      },
+      "email": "Earl.Crooks@hotmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/aoimedia/128.jpg",
+      "list": [
+        "voluptatibus",
+        "aut",
+        "ipsa"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "firstName": "Madeline",
+    "lastName": "Paucek",
+    "bs": "open-source engage bandwidth",
+    "catchPhrase": "Up-sized responsive knowledge base",
+    "companyName": "Farrell - Johnson",
+    "detail": {
+      "firstName": "Deangelo",
+      "lastName": "Schuster",
+      "address": {
+        "zipCode": "99503-7920",
+        "city": "New Marilyne",
+        "street": "Orpha Lane"
+      },
+      "email": "Garrick.Dibbert@hotmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/cofla/128.jpg",
+      "list": [
+        "recusandae",
+        "deleniti",
+        "deserunt"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "firstName": "Quentin",
+    "lastName": "Lowe",
+    "bs": "revolutionary brand mindshare",
+    "catchPhrase": "Synergized coherent structure",
+    "companyName": "Hartmann Inc",
+    "detail": {
+      "firstName": "Lafayette",
+      "lastName": "Glover",
+      "address": {
+        "zipCode": "30592",
+        "city": "Heaneyshire",
+        "street": "Zaria Estate"
+      },
+      "email": "Rogers.Auer92@yahoo.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/marcobarbosa/128.jpg",
+      "list": [
+        "tempore",
+        "voluptas",
+        "quibusdam"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "firstName": "Gavin",
+    "lastName": "Metz",
+    "bs": "collaborative generate e-services",
+    "catchPhrase": "Face to face well-modulated superstructure",
+    "companyName": "Wolff and Sons",
+    "detail": {
+      "firstName": "Kiel",
+      "lastName": "Harber",
+      "address": {
+        "zipCode": "45646-5408",
+        "city": "Mitchellside",
+        "street": "Jakubowski Common"
+      },
+      "email": "Ruthie.Shanahan29@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/rangafangs/128.jpg",
+      "list": [
+        "quam",
+        "quis",
+        "repudiandae"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "firstName": "Bettie",
+    "lastName": "Senger",
+    "bs": "holistic target vortals",
+    "catchPhrase": "Automated logistical migration",
+    "companyName": "Friesen, Schmidt and Hamill",
+    "detail": {
+      "firstName": "Shemar",
+      "lastName": "Hammes",
+      "address": {
+        "zipCode": "55431",
+        "city": "Albertaton",
+        "street": "Tabitha Ville"
+      },
+      "email": "Aiden32@yahoo.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/marakasina/128.jpg",
+      "list": [
+        "voluptatem",
+        "veniam",
+        "doloremque"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "firstName": "Anais",
+    "lastName": "Conn",
+    "bs": "customized facilitate infrastructures",
+    "catchPhrase": "User-friendly dedicated complexity",
+    "companyName": "Ernser - Swift",
+    "detail": {
+      "firstName": "Americo",
+      "lastName": "Cruickshank",
+      "address": {
+        "zipCode": "12653-4003",
+        "city": "South Vergie",
+        "street": "Hilll Forges"
+      },
+      "email": "Kimberly33@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/hasslunsford/128.jpg",
+      "list": [
+        "sunt",
+        "fuga",
+        "dolores"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "firstName": "Hank",
+    "lastName": "Weimann",
+    "bs": "distributed deploy mindshare",
+    "catchPhrase": "Front-line fault-tolerant analyzer",
+    "companyName": "D'Amore, Morissette and Lesch",
+    "detail": {
+      "firstName": "May",
+      "lastName": "Wehner",
+      "address": {
+        "zipCode": "61485-9120",
+        "city": "Gerdashire",
+        "street": "Conn Pike"
+      },
+      "email": "Reyna.Murphy46@gmail.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/sebashton/128.jpg",
+      "list": [
+        "ipsa",
+        "voluptatem",
+        "recusandae"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "firstName": "Bennett",
+    "lastName": "Romaguera",
+    "bs": "turn-key repurpose convergence",
+    "catchPhrase": "Switchable stable capability",
+    "companyName": "Von Inc",
+    "detail": {
+      "firstName": "Willis",
+      "lastName": "Wyman",
+      "address": {
+        "zipCode": "53518-2588",
+        "city": "Enricohaven",
+        "street": "Alejandrin Fort"
+      },
+      "email": "Ora_Baumbach@yahoo.com",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/adamnac/128.jpg",
+      "list": [
+        "recusandae",
+        "quia",
+        "veritatis"
+      ]
+    }
+  }
+]
 
 /**
  * ExampleComponent is an example component.
@@ -14,22 +260,7 @@ export default class CollapseTable extends Component {
 
         return (
             <div id={id}>
-                ExampleComponent: {label}&nbsp;
-                <input
-                    value={value}
-                    onChange={
-                        /*
-                         * Send the new value to the parent component.
-                         * setProps is a prop that is automatically supplied
-                         * by dash's front-end ("dash-renderer").
-                         * In a Dash app, this will update the component's
-                         * props and send the data back to the Python Dash
-                         * app server if a callback uses the modified prop as
-                         * Input or State.
-                         */
-                        e => setProps({ value: e.target.value })
-                    }
-                />
+                <ReactNestedTable data={jsonData} />
             </div>
         );
     }
