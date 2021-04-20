@@ -1,0 +1,7 @@
+include collapse_table/collapse_table.min.js
+include collapse_table/collapse_table.min.js.map
+include collapse_table/metadata.json
+include collapse_table/package-info.json
+include README.md
+include LICENSE
+include package.json
